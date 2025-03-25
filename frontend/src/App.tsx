@@ -4,9 +4,10 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Grid from './components/Grid'
 import axios from 'axios';
+import { Listing } from './schemas/listing'
 
 function App() {
-  const [listings, setListings] = useLocalStorage<any[]>("properties", []);
+  const [listings, setListings] = useLocalStorage<Listing[]>("properties", []);
   const [error, setError] = useState<string | null>(null);
 
   const fetchListings = async () => {
@@ -35,7 +36,7 @@ function App() {
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-slate-700/50'>
       <Header />
-      <Grid listings={[]} />
+      <Grid listings={listings} />
       <Footer />
     </div>
   )

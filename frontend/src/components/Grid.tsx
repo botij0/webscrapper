@@ -1,8 +1,4 @@
-interface Listing {
-    title: string
-    price: number
-    url: string
-}
+import { Listing } from '../schemas/listing'
 
 const Grid = ({ listings }: { listings: Listing[] }) => {
     return (

@@ -13,7 +13,7 @@ export const scrapeListings = async ({ browser, retryCount }) => {
         const page = await browser.newPage();
 
         try {
-            await page.goto("https://www.airbnb.com/", { waitUntil: "load" });
+            await page.goto("https://www.airbnb.es/", { waitUntil: "load" });
 
             await page.waitForSelector('[itemprop="itemListElement"]', {
                 timeout: 10000,
