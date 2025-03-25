@@ -15,19 +15,26 @@ export const scrapeListings = async ({ browser, retryCount }) => {
         try {
             await page.goto("https://www.airbnb.es/", { waitUntil: "load" });
 
-            await page.waitForSelector('[itemprop="itemListElement"]', {
-                timeout: 10000,
-            });
+            await page.waitForFunction(
+                () => {
+                    return (
+                        document.querySelectorAll(
+                            '[itemprop="itemListElement"]'
+                        ).length >= 10
+                    );
+                },
+                { timeout: 15000 }
+            );
 
             const listings = await page.$$eval(
                 '[itemprop="itemListElement"]',
                 (elements) => {
                     return elements.slice(0, 10).map((element) => {
                         const title =
-                            element.querySelector(".t1jojoys")?.inneText ||
+                            element.querySelector(".t1jojoys")?.innerText ||
                             "N/A";
                         const price =
-                            element.querySelector("._11jcb2")?.innerText ||
+                            element.querySelector("._jczto5")?.innerText ||
                             "N/A";
                         const url = element.querySelector("a")?.href || "N/A";
                         return { title, price, url };
