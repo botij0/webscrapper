@@ -9,6 +9,7 @@ const PORT = 5001;
 app.use(cors());
 
 app.get("/scrape", async (req, res) => {
+    console.log("Received request to scrape listings");
     let browser;
     try {
         browser = await chromium.launch();
@@ -16,6 +17,7 @@ app.get("/scrape", async (req, res) => {
         res.json(listings);
     } catch (e) {
         res.status(500).json({ error: e.message });
+        console.error(e);
     }
 });
 
