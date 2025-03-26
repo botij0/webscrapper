@@ -34,9 +34,11 @@ function App() {
     }
   }, []);
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-slate-700/50'>
+    <div className='flex flex-col items-center min-h-screen bg-slate-700/50'>
       <Header />
+
       <Grid listings={listings} />
+
       <Footer />
     </div>
   )

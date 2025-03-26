@@ -6,7 +6,7 @@
     "@types/bun": "latest"
   },
   "scripts": {
-    "start": "bun run src/server.js"
+    "dev": "bun run src/server.js"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
