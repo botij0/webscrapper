@@ -34,7 +34,7 @@ function App() {
     }
   }, []);
   return (
-    <div className='flex flex-col items-center min-h-screen bg-slate-700/50'>
+    <div className='flex flex-col items-center min-h-screen bg-gradient-to-br from-emerald-900/70 to-emerald-200/50'>
       <Header />
 
       <Grid listings={listings} />

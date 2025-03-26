@@ -20,16 +20,16 @@ export const scrapeListings = async ({ browser, retryCount }) => {
                     return (
                         document.querySelectorAll(
                             '[itemprop="itemListElement"]'
-                        ).length >= 10
+                        ).length >= 20
                     );
                 },
-                { timeout: 15000 }
+                { timeout: 20000 }
             );
 
             const listings = await page.$$eval(
                 '[itemprop="itemListElement"]',
                 (elements) => {
-                    return elements.slice(0, 10).map((element) => {
+                    return elements.slice(0, 20).map((element) => {
                         const title =
                             element.querySelector(".t1jojoys")?.innerText ||
                             "N/A";
