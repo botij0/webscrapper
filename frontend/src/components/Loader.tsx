@@ -1,8 +1,8 @@
 const Loader = () => {
     return (
-        <div className="flex items-center justify-center h-screen">
+        <div className="flex items-center justify-center">
             <svg
-                className="animate-spin h-10 w-10 text-black"
+                className="animate-spin h-10 w-10 text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 100 100"
                 preserveAspectRatio="xMidYMid"
@@ -11,7 +11,7 @@ const Loader = () => {
                     cx="50"
                     cy="50"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="white"
                     strokeWidth="10"
                     r="35"
                     strokeDasharray="164.93361431346415 56.97787143782138"
