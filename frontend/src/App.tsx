@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Listing } from './schemas/listing'
 import RefreshButton from './components/RefreshButton';
 import ErrorBoundary from './components/ErrorBoundary';
+import Loader from './components/Loader';
 
 function App() {
   const [listings, setListings] = useLocalStorage<Listing[]>("properties", []);
@@ -46,7 +47,7 @@ function App() {
         <main className='mb-auto mx-5 flex flex-col items-center justify-center'>
           <RefreshButton onClick={fetchListings} isLoading={isLoading} />
           {error && <p className='text-red-500 text-center'>{error}</p>}
-          <Grid listings={listings} />
+          {isLoading ? <Loader /> : <Grid listings={listings} />}
         </main>
         <Footer />
       </div>
